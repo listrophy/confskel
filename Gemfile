@@ -2,18 +2,17 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 group :development do
-  # gem 'better_errors'
-  # gem 'binding_of_caller'
   gem 'sqlite3'
 end
 
 
 group :test, :development do
-    gem 'rspec-rails'
+  gem 'rspec-rails'
+  gem 'turnip'
+  gem 'capybara'
+  gem 'pry-rails'
+  gem 'launchy'
 end
 
 group :production do
@@ -26,28 +25,14 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
-# gem 'activeadmin'
+
 gem 'activeadmin', git: 'git://github.com/gregbell/active_admin.git'
+# activeadmin needs 'meta_search'
+# see http://activeadmin.info/docs/0-installation.html#running_the_generator for more info
 gem 'meta_search', '>= 1.1.0.pre'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+gem 'carrierwave'
+# gem 'fog' # optional dependency for carrierwave (for amazon s3)
