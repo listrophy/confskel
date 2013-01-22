@@ -3,8 +3,8 @@ ActiveAdmin.register Sponsor do
     column :name
     column :twitter
     column :website
-    column 'Description' do |speaker|
-      "#{ speaker.bio[1..140].rstrip }..."
+    column 'Description' do |sponsor|
+      "#{ sponsor.description[1..140].rstrip }..."
     end
     default_actions
   end
