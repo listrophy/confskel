@@ -1,8 +1,4 @@
 module SessionSteps
-  def get_session_id(session_name)
-    Session.where(["title = ?", session_name]).first.id
-  end
-
   step "I create a (new) session for :talk_name" do |talk_name|
     click_link 'New Session'
     fill_in 'Title', with: talk_name
@@ -42,15 +38,15 @@ module SessionSteps
     select '00', from: 'session_start_5i'
   end
 
-  step "an existing session :session_name" do |session_name|
-    step "I create a new session for '#{session_name}'"
+  step "an existing session :title" do |title|
+    step "I create a new session for '#{title}'"
     step "I go to the Sessions section"
   end
 
-  step "I change some details for :session_name" do |session_name|
-    @new_session_name = "Session ##{Random.rand 10000..99999}"
-    find("a[href='/admin/sessions/#{get_session_id session_name}/edit']").click
-    fill_in 'Title', with: @new_session_name
+  step "I change some details for :title" do |title|
+    @new_session_title = "Session ##{Random.rand 10000..99999}"
+    find("a[href='/admin/sessions/#{Session.where(title: title).first.id}/edit']").click
+    fill_in 'Title', with: @new_session_title
   end
 
   step "I save those changed details" do
@@ -59,15 +55,15 @@ module SessionSteps
 
   step "I should see my changes reflected in the index page" do
     step "I go to the Sessions section"
-    page.should have_content @new_session_name
+    page.should have_content @new_session_title
   end
 
-  step "I delete :session_name" do |session_name|
-    find("a[href='/admin/sessions/#{get_session_id session_name}'].delete_link").click
+  step "I delete :title" do |title|
+    find("a[href='/admin/sessions/#{Session.where(title: title).first.id}'].delete_link").click
     step "I go to the Sessions section"
   end
 
-  step "the schedule should no longer show :session_name" do |session_name|
-    page.should_not have_content session_name
+  step "the schedule should no longer show :title" do |title|
+    page.should_not have_content title
   end
 end

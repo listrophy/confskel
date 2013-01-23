@@ -1,11 +1,7 @@
 module SpeakerSteps
-  def get_speaker_id(speaker_name)
-    Speaker.where(["name = ?", speaker_name]).first.id
-  end
-
-  step "I create a new speaker :speaker_name" do |speaker_name|
+  step "I create a new speaker :name" do |name|
     click_link 'New Speaker'
-    fill_in 'Name', with: speaker_name
+    fill_in 'Name', with: name
     fill_in 'Twitter', with: 'allyourbase'
     fill_in 'Website', with: 'http://bendyworks.com'
     fill_in 'Bio', with: """
@@ -20,19 +16,19 @@ module SpeakerSteps
     page.should have_content 'Speaker was successfully created.'
   end
 
-  step "an existing speaker :speaker_name" do |speaker_name|
-    step "I create a new speaker '#{speaker_name}'"
+  step "an existing speaker :name" do |name|
+    step "I create a new speaker '#{name}'"
     step "I go to the Speakers section"
   end
 
-  step "I should see my new speaker, :speaker_name in the index page" do |speaker_name|
+  step "I should see my new speaker, :name in the index page" do |name|
     step "I am on the Speakers section"
-    page.should have_content speaker_name
+    page.should have_content name
   end
 
-  step "I should see all :speaker_name(s) fields" do |speaker_name|
+  step "I should see all :name(s) fields" do |name|
     step "I am on the Speakers section"
-    page.should have_content speaker_name
+    page.should have_content name
     page.should have_content 'allyourbase'
     page.should have_content 'http://bendyworks.com'
     page.should have_content 'Fusce a metus eu diam varius congue nec nec sapien.'
@@ -40,9 +36,9 @@ module SpeakerSteps
     page.should have_content 'http://bendyworks.com'
   end
 
-  step "I change some fields for :speaker_name" do |speaker_name|
+  step "I change some fields for :name" do |name|
     @new_twitter_handle = "@human#{Random.rand 10000..99999}"
-    find("a[href='/admin/speakers/#{get_speaker_id speaker_name}/edit']").click
+    find("a[href='/admin/speakers/#{Speaker.where(name: name).first.id}/edit']").click
     fill_in 'Twitter', with: @new_twitter_handle
   end
 
@@ -55,12 +51,12 @@ module SpeakerSteps
     page.should have_content @new_twitter_handle
   end
 
-  step "I delete some speaker :speaker_name" do |speaker_name|
-    find("a[href='/admin/speakers/#{get_speaker_id speaker_name}'].delete_link").click
+  step "I delete some speaker :name" do |name|
+    find("a[href='/admin/speakers/#{Speaker.where(name: name).first.id}'].delete_link").click
     step "I go to the Speakers section"
   end
 
-  step "I should no longer see :speaker_name" do |speaker_name|
-    page.should_not have_content speaker_name
+  step "I should no longer see :name" do |name|
+    page.should_not have_content name
   end
 end
