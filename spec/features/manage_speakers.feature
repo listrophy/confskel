@@ -1,21 +1,24 @@
 Feature: Manage Speakers
 
-	NOTE: "conference organizer" and "admin" (aka administrator) are considered synonymous in this file
+	In order to promote speakers
+	as a conf. org.,
+	I want to be able to maintain speaker details through an admin panel.
 
 	Background:
-		Given a conference organizer goes to the speakers section of the admin panel.
-
-	Scenario: Conference organizer deletes a speaker
-		When the admin deletes some speaker "Speaker A"
-		Then the admin should no longer see "Speaker A" in the list of speakers
+		Given I am logged in
+		And I go to the Speakers section
 
 	Scenario: Conference organizer makes a new speaker
-		When the admin creates a new user
-		Then the admin should see their new speaker in the index page
-		And the admin should be able to see their new speaker in its own details page
+		When I create a new speaker "Speaker A"
+		Then I should see my new speaker, "Speaker A" in the index page
+		And I should see all "Speaker A"s fields
 
-	Scenario: Conference organizer changes a speaker
-		When the admin changes some fields for "Speaker A"
-		And the admin confirms or saves those changes
-		Then the admin should see their changes to "Speaker A" in the index page
-		And the admin should see their changes to "Speaker A" in the details page for "Speaker A"
+	# Scenario: Conference organizer changes a speaker
+	# 	When I change some fields for "Speaker A"
+	# 	And I confirms or saves those changes
+	# 	Then I should see their changes to "Speaker A" in the index page
+	# 	And I should see their changes to "Speaker A" in the details page for "Speaker A"
+
+# 	Scenario: Conference organizer deletes a speaker
+# 		When I delete some speaker "Speaker A"
+# 		Then I should no longer see "Speaker A"
