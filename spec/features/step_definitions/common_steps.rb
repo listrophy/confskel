@@ -16,9 +16,13 @@ module Turnip::Steps
     click_button 'Login'
   end
 
-  step "a conference organizer goes to the :section section of the admin panel" do |section|
+  step "I am on the :section section" do |section|
+    step "I go to the #{section} section"
+  end
+
+  step "I go to the :section section" do |section|
     visit "/admin/#{route_like section}"
-    within('#page_title') do
+    within '#page_title' do
       page.should have_content 'Sessions'
     end
   end
