@@ -1,17 +1,10 @@
 module SessionSteps
-  step "a conference organizer goes to the schedule section of the admin panel" do
-    visit '/admin/sessions'
-    within('#page_header') do
-      page.should have_content 'Sessions'
-    end
-  end
-
   step "the admin creates a new session for :talk_name" do |talk_name|
     click_link 'New Session'
     fill_in 'Title', with: talk_name
     fill_in 'Location', with: 'Room 123'
     fill_in 'Speaker', with: 'Bob Loblaw'
-    fill_in 'Type', with: 'Talk'
+    fill_in 'Session type', with: 'Talk'
     step "fill in the start time"
     step "fill in the end time"
     fill_in 'Description', with: """
@@ -45,4 +38,3 @@ module SessionSteps
     select '00', from: 'session_start_5i'
   end
 end
-

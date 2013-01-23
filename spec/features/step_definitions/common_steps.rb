@@ -1,4 +1,8 @@
 module Turnip::Steps
+  def route_like(str)
+    str.parameterize.underscore
+  end
+
   step "I am logged in" do
     unless AdminUser.find_by_email('admin@example.com')
       AdminUser.create! email: 'admin@example.com',
@@ -10,5 +14,12 @@ module Turnip::Steps
     fill_in 'Email', with: 'admin@example.com'
     fill_in 'Password', with: 'password'
     click_button 'Login'
+  end
+
+  step "a conference organizer goes to the :section section of the admin panel" do |section|
+    visit "/admin/#{route_like section}"
+    within('#page_title') do
+      page.should have_content 'Sessions'
+    end
   end
 end
