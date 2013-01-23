@@ -13,12 +13,13 @@ Feature: Manage Speakers
 		Then I should see my new speaker, "Speaker A" in the index page
 		And I should see all "Speaker A"s fields
 
-	# Scenario: Conference organizer changes a speaker
-	# 	When I change some fields for "Speaker A"
-	# 	And I confirms or saves those changes
-	# 	Then I should see their changes to "Speaker A" in the index page
-	# 	And I should see their changes to "Speaker A" in the details page for "Speaker A"
+	Scenario: Conference organizer changes a speaker
+		Given an existing speaker "Speaker A"
+		When I change some fields for "Speaker A"
+		And I save those changes
+		Then I should see my changes reflected in the index page
 
-# 	Scenario: Conference organizer deletes a speaker
-# 		When I delete some speaker "Speaker A"
-# 		Then I should no longer see "Speaker A"
+	Scenario: Conference organizer deletes a speaker
+		Given an existing speaker "Speaker A"
+		When I delete some speaker "Speaker A"
+		Then I should no longer see "Speaker A"

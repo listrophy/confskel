@@ -1,4 +1,8 @@
 module SpeakerSteps
+  def get_speaker_id(speaker_name)
+    Speaker.where(["name = ?", speaker_name]).first.id
+  end
+
   step "I create a new speaker :speaker_name" do |speaker_name|
     click_link 'New Speaker'
     fill_in 'Name', with: speaker_name
@@ -16,6 +20,11 @@ module SpeakerSteps
     page.should have_content 'Speaker was successfully created.'
   end
 
+  step "an existing speaker :speaker_name" do |speaker_name|
+    step "I create a new speaker '#{speaker_name}'"
+    step "I go to the Speakers section"
+  end
+
   step "I should see my new speaker, :speaker_name in the index page" do |speaker_name|
     step "I am on the Speakers section"
     page.should have_content speaker_name
@@ -29,5 +38,29 @@ module SpeakerSteps
     page.should have_content 'Fusce a metus eu diam varius congue nec nec sapien.'
     page.should have_content 'Bendyworks'
     page.should have_content 'http://bendyworks.com'
+  end
+
+  step "I change some fields for :speaker_name" do |speaker_name|
+    @new_twitter_handle = "@human#{Random.rand 10000..99999}"
+    find("a[href='/admin/speakers/#{get_speaker_id speaker_name}/edit']").click
+    fill_in 'Twitter', with: @new_twitter_handle
+  end
+
+  step "I save those changes" do
+    click_button 'Update Speaker'
+  end
+
+  step "I should see my changes reflected in the index page" do
+    step "I go to the Speakers section"
+    page.should have_content @new_twitter_handle
+  end
+
+  step "I delete some speaker :speaker_name" do |speaker_name|
+    find("a[href='/admin/speakers/#{get_speaker_id speaker_name}'].delete_link").click
+    step "I go to the Speakers section"
+  end
+
+  step "I should no longer see :speaker_name" do |speaker_name|
+    page.should_not have_content speaker_name
   end
 end
