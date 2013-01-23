@@ -6,7 +6,7 @@ class CreateSessions < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :speaker
-      t.string :type
+      t.string :session_type
       t.string :location
 
       t.timestamps

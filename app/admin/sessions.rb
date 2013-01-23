@@ -3,7 +3,7 @@ ActiveAdmin.register Session do
     column :title
     column :location
     column :speaker
-    column :type
+    column :session_type
     column :start
     column :end
     column 'Description' do |session|
@@ -16,7 +16,7 @@ ActiveAdmin.register Session do
     f.inputs :title
     f.inputs :location
     f.inputs :speaker
-    f.inputs :type
+    f.inputs :session_type
     f.inputs 'Duration' do
       f.input :start, as: :datetime_select
       f.input :end, as: :datetime_select

@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(:version => 20130122205106) do
     t.string   "title"
     t.text     "description"
     t.string   "speaker"
-    t.string   "type"
+    t.string   "session_type"
     t.string   "location"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "speakers", :force => true do |t|
