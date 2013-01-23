@@ -23,7 +23,7 @@ module Turnip::Steps
   step "I go to the :section section" do |section|
     visit "/admin/#{route_like section}"
     within '#page_title' do
-      page.should have_content 'Sessions'
+      page.should have_content section
     end
   end
 end
