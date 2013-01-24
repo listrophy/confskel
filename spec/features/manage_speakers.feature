@@ -11,7 +11,7 @@ Feature: Manage Speakers
 	Scenario: Conference organizer makes a new speaker
 		When I create a new speaker "Speaker A"
 		Then I should see my new speaker, "Speaker A" in the index page
-		And I should see all "Speaker A"s fields
+		And I should see the data for "Speaker A"
 
 	Scenario: Conference organizer changes a speaker
 		Given an existing speaker "Speaker A"

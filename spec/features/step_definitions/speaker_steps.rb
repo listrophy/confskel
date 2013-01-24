@@ -26,14 +26,13 @@ module SpeakerSteps
     page.should have_content name
   end
 
-  step "I should see all :name(s) fields" do |name|
+  step "I should see the data for :name" do |name|
     step "I am on the Speakers section"
     page.should have_content name
     page.should have_content 'allyourbase'
     page.should have_content 'http://bendyworks.com'
     page.should have_content 'Fusce a metus eu diam varius congue nec nec sapien.'
     page.should have_content 'Bendyworks'
-    page.should have_content 'http://bendyworks.com'
   end
 
   step "I change some fields for :name" do |name|
