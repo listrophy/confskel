@@ -39,4 +39,5 @@ RSpec.configure do |config|
   config.order = "random"
   config.include SessionSteps
   config.include SpeakerSteps
+  config.include SponsorSteps
 end
