@@ -11,13 +11,13 @@ Feature: Manage Speakers
 	Scenario: Conference organizer makes a new speaker
 		When I create a new speaker "Speaker A"
 		Then I should see my new speaker, "Speaker A" in the index page
-		And I should see the data for "Speaker A"
+		And I should see the info for the speaker "Speaker A"
 
 	Scenario: Conference organizer changes a speaker
 		Given an existing speaker "Speaker A"
-		When I change some fields for "Speaker A"
-		And I save those changes
-		Then I should see my changes reflected in the index page
+		When I change some fields for the speaker "Speaker A"
+		And I save those changes to the speaker
+		Then I should see my changes to the speaker reflected in the index page
 
 	Scenario: Conference organizer deletes a speaker
 		Given an existing speaker "Speaker A"

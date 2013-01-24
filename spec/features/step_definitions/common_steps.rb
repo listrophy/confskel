@@ -26,4 +26,16 @@ module Turnip::Steps
       page.should have_content section
     end
   end
+
+  step "I should see :something" do |something|
+    page.should have_content something
+  end
+
+  step "I should no longer see :something" do |something|
+    page.should_not have_content something
+  end
+
+  step "I should not see :something" do |something|
+    step "I should no longer see '#{something}'"
+  end
 end

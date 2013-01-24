@@ -19,12 +19,12 @@ Feature: Manage Session
 	Scenario: Conference organizer edits session
 		Given an existing session "Talk A"
 		When I go to the Sessions section
-		And I change some details for "Talk A"
-		And I save those changed details
-		Then I should see my changes reflected in the index page
+		And I change some details for the session "Talk A"
+		And I save those changed details to the session
+		Then I should see my changes to the session reflected in the index page
 
 	Scenario: Conference organizer deletes session
 		Given an existing session "Talk A"
 		When I am on the Sessions section
-		And I delete "Talk A"
-		Then the schedule should no longer show "Talk A"
+		And I delete the session "Talk A"
+		Then I should no longer see "Talk A"

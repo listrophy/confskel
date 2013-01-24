@@ -17,11 +17,6 @@ module SessionSteps
     page.should have_content 'Session was successfully created.'
   end
 
-  step "I should see :talk_name" do |talk_name|
-    visit '/admin/sessions'
-    page.should have_content talk_name
-  end
-
   step "fill in the start time" do
     select '2013', from: 'session_start_1i'
     select 'January', from: 'session_start_2i'
@@ -43,27 +38,24 @@ module SessionSteps
     step "I go to the Sessions section"
   end
 
-  step "I change some details for :title" do |title|
+  step "I change some details for the session :title" do |title|
     @new_session_title = "Session ##{Random.rand 10000..99999}"
     find("a[href='/admin/sessions/#{Session.where(title: title).first.id}/edit']").click
     fill_in 'Title', with: @new_session_title
   end
 
-  step "I save those changed details" do
+  step "I save those changed details for/to the session" do
     click_button 'Update Session'
+    step "I go to the Sessions section"
   end
 
-  step "I should see my changes reflected in the index page" do
+  step "I should see my changes to the session reflected in the index page" do
     step "I go to the Sessions section"
     page.should have_content @new_session_title
   end
 
-  step "I delete :title" do |title|
+  step "I delete the session :title" do |title|
     find("a[href='/admin/sessions/#{Session.where(title: title).first.id}'].delete_link").click
     step "I go to the Sessions section"
-  end
-
-  step "the schedule should no longer show :title" do |title|
-    page.should_not have_content title
   end
 end

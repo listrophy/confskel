@@ -26,7 +26,7 @@ module SpeakerSteps
     page.should have_content name
   end
 
-  step "I should see the data for :name" do |name|
+  step "I should see the info for the speaker :name" do |name|
     step "I am on the Speakers section"
     page.should have_content name
     page.should have_content 'allyourbase'
@@ -35,17 +35,17 @@ module SpeakerSteps
     page.should have_content 'Bendyworks'
   end
 
-  step "I change some fields for :name" do |name|
+  step "I change some fields for the speaker :name" do |name|
     @new_twitter_handle = "@human#{Random.rand 10000..99999}"
     find("a[href='/admin/speakers/#{Speaker.where(name: name).first.id}/edit']").click
     fill_in 'Twitter', with: @new_twitter_handle
   end
 
-  step "I save those changes" do
+  step "I save those changes to the speaker" do
     click_button 'Update Speaker'
   end
 
-  step "I should see my changes reflected in the index page" do
+  step "I should see my changes to the speaker reflected in the index page" do
     step "I go to the Speakers section"
     page.should have_content @new_twitter_handle
   end
@@ -53,9 +53,5 @@ module SpeakerSteps
   step "I delete some speaker :name" do |name|
     find("a[href='/admin/speakers/#{Speaker.where(name: name).first.id}'].delete_link").click
     step "I go to the Speakers section"
-  end
-
-  step "I should no longer see :name" do |name|
-    page.should_not have_content name
   end
 end
