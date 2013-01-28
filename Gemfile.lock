@@ -108,6 +108,11 @@ GEM
     gherkin (2.11.5)
       json (>= 1.4.6)
     has_scope (0.5.1)
+    heroku-api (0.3.7)
+      excon (~> 0.16.10)
+    heroku_san (4.0.8)
+      heroku-api (>= 0.1.2)
+      rake
     hike (1.2.1)
     i18n (0.6.1)
     idkfa (0.0.3)
@@ -253,6 +258,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   fog
+  heroku_san
   idkfa
   jquery-rails
   launchy

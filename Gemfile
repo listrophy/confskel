@@ -24,6 +24,7 @@ gem 'jquery-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # gives the error page from 'better_errors' a repl
+  gem 'heroku_san'
   gem 'thin'
 end
 
