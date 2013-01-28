@@ -4,15 +4,26 @@ ActiveAdmin.register Speaker do
     column :twitter
     column :website
     column 'Bio' do |speaker|
-      "#{ speaker.bio[1..140].rstrip }..."
+      truncate(speaker.bio, {length: 140})
     end
     column :company_name
     column :company_url
     column 'Speaker Image' do |speaker|
-      puts speaker.image_url.to_s
+      image_tag(speaker.image_url) if speaker.image_url
     end
     default_actions
   end
 
-  form partial: 'image_form'
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :bio
+      f.input :twitter
+      f.input :website
+      f.input :image, as: :file
+      f.input :company_name
+      f.input :company_url
+    end
+    f.actions
+  end
 end
