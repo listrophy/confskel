@@ -1,0 +1,31 @@
+<%= semantic_form_for :speaker, html: { multipart: true } do |f| %>
+  <p>
+    <%= f.label :bio %>
+    <%= f.text_field :bio %>
+  </p>
+  <p>
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name %>
+  </p>
+  <p>
+    <%= f.label :company_url %>
+    <%= f.text_field :company_url %>
+  </p>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :twitter %>
+    <%= f.text_field :twitter %>
+  </p>
+  <p>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </p>
+  <p>
+    <%= f.label :image %>
+    <%= file_field_tag :image %>
+  </p>
+  <%= submit_tag %>
+<% end %>

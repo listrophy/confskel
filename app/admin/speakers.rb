@@ -8,6 +8,11 @@ ActiveAdmin.register Speaker do
     end
     column :company_name
     column :company_url
+    column 'Speaker Image' do |speaker|
+      puts speaker.image_url.to_s
+    end
     default_actions
   end
+
+  form partial: 'image_form'
 end
