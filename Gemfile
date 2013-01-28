@@ -8,6 +8,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
 gem 'idkfa'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,9 +22,9 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller' # gives the error page from 'better_errors' a repl
+  gem 'thin'
 end
 
 group :test, :development do
@@ -35,5 +36,5 @@ group :test, :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'unicorn'
 end
