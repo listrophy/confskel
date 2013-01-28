@@ -11,6 +11,10 @@ end
 
 module Confskel
   class Application < Rails::Application
+    if Rails.env.development? || Rails.env.test?
+      Idkfa.load_keys Rails.env, credentials: Rails.root.join('config/credentials.yml')
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
