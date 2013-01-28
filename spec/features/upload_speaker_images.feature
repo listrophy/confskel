@@ -2,7 +2,7 @@ Feature: Upload speaker images
 
 	Background:
 		Given a speaker "Speaker A" exists
-		Given I am logged in
+		And I am logged in
 		And I go to the Speakers section
 		And I edit speaker "Speaker A"
 
