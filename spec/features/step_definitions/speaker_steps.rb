@@ -1,4 +1,8 @@
 module SpeakerSteps
+  step "a speaker :name exists" do |name|
+    Speaker.create(name: name)
+  end
+
   step "I create a new speaker :name" do |name|
     click_link 'New Speaker'
     fill_in 'Name', with: name
@@ -35,9 +39,13 @@ module SpeakerSteps
     page.should have_content 'Bendyworks'
   end
 
-  step "I change some fields for the speaker :name" do |name|
-    @new_twitter_handle = "@human#{Random.rand 10000..99999}"
+  step "I edit speaker :name" do |name|
     find("a[href='/admin/speakers/#{Speaker.where(name: name).first.id}/edit']").click
+  end
+
+  step "I change some fields for the speaker :name" do |name|
+    step "I edit speaker \"#{name}\""
+    @new_twitter_handle = "@human#{Random.rand 10000..99999}"
     fill_in 'Twitter', with: @new_twitter_handle
   end
 
@@ -53,5 +61,16 @@ module SpeakerSteps
   step "I delete some speaker :name" do |name|
     find("a[href='/admin/speakers/#{Speaker.where(name: name).first.id}'].delete_link").click
     step "I go to the Speakers section"
+  end
+
+  step "I upload a speaker image for :name" do |name|
+    attach_file('Image', 'spec/fixtures/speaker.png')
+    step "I save those changes to the speaker"
+  end
+
+  step "I should see the new speaker image for :name" do |name|
+    within('.speaker') do
+      page.should have_css('img')
+    end
   end
 end

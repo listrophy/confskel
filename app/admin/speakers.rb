@@ -14,6 +14,21 @@ ActiveAdmin.register Speaker do
     default_actions
   end
 
+  show do |speaker|
+    attributes_table do
+      row :name
+      row :twitter
+      row :website
+      row :bio
+      row :image do
+        image_tag(speaker.image_url) if speaker.image_url
+      end
+      row :company_name
+      row :company_url
+    end
+
+  end
+
   form do |f|
     f.inputs do
       f.input :name
