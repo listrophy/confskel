@@ -1,15 +1,11 @@
-# Feature: Upload sponsor images
+Feature: Upload sponsor images
 
-# 	NOTE: this feature may be merged with 'Manage Speakers'
+	Background:
+		Given a sponsor "Sponsor A" exists
+		And I am logged in
+		And I go to the Sponsors section
+		And I edit sponsor "Sponsor A"
 
-# 	Background:
-# 		Given a conference organizer goes to the sponsor images section of the admin panel.
-
-# 	Scenario: Conference organizer uploads an initial image for a sponsor
-# 		When the admin uploads an image for "Sponsor A"
-# 		Then the admin should see the new image for "Sponsor A"
-
-# 	Scenario: Conference organizer uploads a new image for a sponsor
-# 		When the admin uploads a new image for "Sponsor A"
-# 		Then the admin should see the new image for "Sponsor A"
-# 		And the previous image for "Sponsor A" should no longer be visible
+	Scenario: Conference organizer uploads an initial image for a sponsor
+		When I upload a sponsor image for "Sponsor A"
+		Then I should see the new sponsor image for "Sponsor A"

@@ -14,6 +14,10 @@ module SponsorSteps
     page.should have_content 'Sponsor was successfully created.'
   end
 
+  step "a sponsor :name exists" do |name|
+    Sponsor.create(name: name)
+  end
+
   step "I should see my new sponsor, :name in the index page" do |name|
     step "I am on the Sponsors section"
     page.should have_content name
@@ -33,9 +37,13 @@ module SponsorSteps
     step "I go to the Sponsors section"
   end
 
-  step "I change some fields for the sponsor :name" do |name|
-    @new_twitter_handle = "@corp#{Random.rand 10000..99999}"
+  step "I edit sponsor :name" do |name|
     find("a[href='/admin/sponsors/#{Sponsor.where(name: name).first.id}/edit']").click
+  end
+
+  step "I change some fields for the sponsor :name" do |name|
+    step "I edit sponsor \"#{name}\""
+    @new_twitter_handle = "@corp#{Random.rand 10000..99999}"
     fill_in 'Twitter', with: @new_twitter_handle
   end
 
@@ -51,5 +59,16 @@ module SponsorSteps
   step "I delete some sponsor :name" do |name|
     find("a[href='/admin/sponsors/#{Sponsor.where(name: name).first.id}'].delete_link").click
     step "I go to the Sponsors section"
+  end
+
+  step "I upload a sponsor image for :name" do |name|
+    attach_file 'Image', 'spec/fixtures/sponsor.png'
+    step "I save those changes to the sponsor"
+  end
+
+  step "I should see the new sponsor image for :name" do |name|
+    within('.sponsor') do
+      page.should have_css('img')
+    end
   end
 end
