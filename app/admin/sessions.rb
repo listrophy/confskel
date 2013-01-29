@@ -7,7 +7,7 @@ ActiveAdmin.register Session do
     column :start
     column :end
     column 'Description' do |session|
-      "#{ session.description[1..140].rstrip }..."
+      truncate(session.description, {length: 140})
     end
     default_actions
   end
