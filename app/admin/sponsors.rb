@@ -6,6 +6,10 @@ ActiveAdmin.register Sponsor do
     column 'Description' do |sponsor|
       truncate(sponsor.description, {length: 140})
     end
+    column 'Sponsor Image' do |sponsor|
+      image_tag(sponsor.image_url) if sponsor.image_url
+    end
+
     default_actions
   end
 

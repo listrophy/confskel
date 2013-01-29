@@ -71,4 +71,10 @@ module SponsorSteps
       page.should have_css('img')
     end
   end
+
+  step "I should see the sponsor image for :name on the index" do |name|
+    within("#sponsor_#{Sponsor.where(name: name).first.id} .sponsor_image") do
+      page.should have_css('img')
+    end
+  end
 end
