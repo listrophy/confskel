@@ -35,7 +35,7 @@ ActiveAdmin.register Speaker do
       f.input :bio
       f.input :twitter
       f.input :website
-      f.input :image, as: :file
+      f.input :image, as: :file, :hint => (f.template.image_tag(speaker.image_url) if speaker.image_url)
       f.input :company_name
       f.input :company_url
     end

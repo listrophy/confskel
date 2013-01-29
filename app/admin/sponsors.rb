@@ -33,7 +33,7 @@ ActiveAdmin.register Sponsor do
       f.input :description
       f.input :website
       f.input :sponsorship_level
-      f.input :image, as: :file
+      f.input :image, as: :file, hint: (f.template.image_tag(sponsor.image_url) if sponsor.image_url)
     end
     f.actions
   end
