@@ -35,11 +35,35 @@ module ProposalSteps
     page.should have_content name
   end
 
-  step "I edit a talk proposal :name" do |name|
-    pending
+  step "I edit a talk proposal :title" do |title|
+    step "I am on the Proposals section"
+    @updated_audience = 'Nobody'
+
+    step "I am on the Proposals section"
+    find("a[href='/admin/proposals/#{Proposal.where(title: title).first.id}/edit'].edit_link").click
+    fill_in 'Audience', with: @updated_audience
+    click_button 'Update Proposal'
   end
 
-  step "I should see my updated talk proposal :name" do |name|
-    pending
+  step "I should see my updated talk proposal :title (on the index page)" do |title|
+    step "I am on the Proposals section"
+
+    within "#proposal_#{Proposal.where(title: title).first.id}" do
+      page.should have_content @updated_audience
+    end
+  end
+
+  step 'I delete a talk proposal :title' do |title|
+    step "I am on the Proposals section"
+    find("a[href='/admin/proposals/#{Proposal.where(title: title).first.id}'].delete_link").click
+  end
+
+  step "I should not see the talk proposal :name on the index page" do |name|
+    step "I am on the Proposals section"
+    page.should_not have_content name
+  end
+
+  step "an existing talk proposal" do
+    step "I make a new talk proposal \"The best talk proposal\""
   end
 end

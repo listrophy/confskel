@@ -17,9 +17,11 @@ Feature: Capture talk proposals
 		Then I should see my new talk proposal "The best talk proposal" on the index page
 
 	Scenario: Conference organizer can make a new talk proposal
+		Given an existing talk proposal
 		When I edit a talk proposal "The best talk proposal"
 		Then I should see my updated talk proposal "The best talk proposal" on the index page
 
 	Scenario: Conference organizer can make a new talk proposal
+		Given an existing talk proposal
 		When I delete a talk proposal "The best talk proposal"
 		Then I should not see the talk proposal "The best talk proposal" on the index page
