@@ -17,7 +17,7 @@ module Turnip::Steps
   end
 
   step "I am on the :section section" do |section|
-    step "I go to the #{section} section"
+    step "I go to the '#{section}' section"
   end
 
   step "I go to the :section section" do |section|
