@@ -5,8 +5,8 @@ module SessionSteps
     fill_in 'Location', with: 'Room 123'
     fill_in 'Speaker', with: 'Bob Loblaw'
     fill_in 'Session type', with: 'Talk'
-    step "fill in the start time"
-    step "fill in the end time"
+    step "fill in the session start time"
+    step "fill in the session end time"
     fill_in 'Description', with: """
       Fusce a metus eu diam varius congue nec nec sapien. Vestibulum orci tortor, sollicitudin ac euismod non, placerat ac augue. Nunc convallis accumsan justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec malesuada vehicula lectus, viverra sodales ipsum gravida nec. Integer gravida nisi ut magna mollis molestie. Nullam pharetra accumsan sagittis. Proin tristique rhoncus orci, eget vulputate nisi sollicitudin et. Quisque lacus augue, mollis non mollis et, ullamcorper in purus. Morbi et sem orci. Praesent accumsan odio in ante ullamcorper id pellentesque mauris rhoncus. Duis vitae neque dolor. Duis sed purus at eros bibendum cursus nec a nulla. Donec turpis quam, ultricies id pretium sit amet, gravida eget leo.
       Proin ut quam eros. Donec sed lobortis diam. Nulla nec odio lacus. Quisque porttitor egestas dolor in placerat. Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus. Morbi lorem ante, malesuada in mollis nec, auctor nec massa. Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor. Nunc et tortor sit amet orci consequat semper. Nulla non fringilla diam.
@@ -17,20 +17,20 @@ module SessionSteps
     page.should have_content 'Session was successfully created.'
   end
 
-  step "fill in the start time" do
-    select '2013', from: 'session_start_1i'
+  step "fill in the session start time" do
+    select '2012', from: 'session_start_1i'
     select 'January', from: 'session_start_2i'
     select '10', from: 'session_start_3i'
     select '00', from: 'session_start_4i'
     select '00', from: 'session_start_5i'
   end
 
-  step "fill in the end time" do
-    select '2013', from: 'session_start_1i'
-    select 'January', from: 'session_start_2i'
-    select '11', from: 'session_start_3i'
-    select '00', from: 'session_start_4i'
-    select '00', from: 'session_start_5i'
+  step "fill in the session end time" do
+    select '2013', from: 'session_end_1i'
+    select 'January', from: 'session_end_2i'
+    select '11', from: 'session_end_3i'
+    select '00', from: 'session_end_4i'
+    select '00', from: 'session_end_5i'
   end
 
   step "an existing session :title" do |title|

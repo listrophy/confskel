@@ -9,6 +9,7 @@ gem 'fog'
 gem 'mini_magick'
 gem 'idkfa'
 gem 'pg'
+gem 'validates_timeliness'
 
 # Gems used only for assets and not required
 # in production environments by default.
