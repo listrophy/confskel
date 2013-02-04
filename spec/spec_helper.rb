@@ -41,5 +41,5 @@ RSpec.configure do |config|
   config.include SpeakerSteps
   config.include SponsorSteps
   config.include ProposalSteps
-  config.include ConferenceOptionSteps
+  config.include DeadlineSteps
 end
