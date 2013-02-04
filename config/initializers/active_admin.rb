@@ -1,3 +1,12 @@
+module ActiveAdmin
+  class BaseController
+    def public_view_if_json
+      # allow read-only access to json endpoints (public api)
+      authenticate_admin_user! unless request.get? && request.format == :json
+    end
+  end
+end
+
 ActiveAdmin.setup do |config|
 
   # == Site Title
@@ -55,7 +64,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the controller.
-  config.authentication_method = :authenticate_admin_user!
+  config.authentication_method = :public_view_if_json
 
 
   # == Current User
