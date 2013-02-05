@@ -1,0 +1,5 @@
+#!/bin/bash
+
+killall filewatcher
+
+filewatcher -l src/sass/*.sass src/coffee/*.coffee "scripts/build nomin" &> /dev/null &
