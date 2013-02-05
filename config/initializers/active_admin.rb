@@ -1,8 +1,20 @@
 module ActiveAdmin
   class BaseController
     def public_view_if_json
+      whitelist = [
+        'admin/deadlines',
+        'admin/locations',
+        'admin/proposals',
+        'admin/sessions',
+        'admin/speakers',
+        'admin/sponsors'
+      ]
       # allow read-only access to json endpoints (public api)
-      authenticate_admin_user! unless request.get? && request.format == :json
+      unless(request.get? &&
+             request.format == :json &&
+             whitelist.include?(request.filtered_parameters["controller"]))
+        authenticate_admin_user!
+      end
     end
   end
 end
