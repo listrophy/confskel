@@ -2,6 +2,7 @@ ActiveAdmin.register Session do
   index do
     column :title
     column :location
+    column :room
     column :speaker
     column :session_type
     column :start
