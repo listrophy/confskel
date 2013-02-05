@@ -2,7 +2,6 @@ module SessionSteps
   step "I create a (new) session for :talk_name" do |talk_name|
     click_link 'New Session'
     fill_in 'Title', with: talk_name
-    fill_in 'Speaker', with: 'Bob Loblaw'
     fill_in 'Session type', with: 'Talk'
     step "fill in the session start time"
     step "fill in the session end time"
@@ -71,5 +70,15 @@ module SessionSteps
   step "I delete the session :title" do |title|
     find("a[href='/admin/sessions/#{Session.where(title: title).first.id}'].delete_link").click
     step "I go to the Sessions section"
+  end
+
+  step "select the speaker :speaker for the session" do |speaker|
+    @my_new_speaker = speaker
+    select @my_new_speaker, from: 'session_speaker_id'
+  end
+
+  step "I should see my new speaker for the session reflected in the index page" do
+    step "I go to the Sessions section"
+    step "I should see '#{@my_new_speaker}'"
   end
 end

@@ -25,7 +25,14 @@ ActiveAdmin.register Session do
         """.html_safe
     end
     f.inputs :room
-    f.inputs :speaker
+    f.inputs do
+      f.input :speaker,
+        hint: """
+          You may need to add a <a href=/admin/speakers/new title=\"Add
+          a new speaker\">new speaker</a> first. <br> Note: you can edit
+          this session later if you don't want to add a speaker now.
+        """.html_safe
+    end
     f.inputs :session_type
     f.inputs 'Duration' do
       f.input :start, as: :datetime_select

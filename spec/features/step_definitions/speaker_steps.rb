@@ -21,6 +21,7 @@ module SpeakerSteps
   end
 
   step "an existing speaker :name" do |name|
+    step "I go to the Speakers section"
     step "I create a new speaker '#{name}'"
     step "I go to the Speakers section"
   end

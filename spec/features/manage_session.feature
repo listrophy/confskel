@@ -37,3 +37,12 @@ Feature: Manage Session
     And select the location "Location A" for the session
     And I save those changed details to the session
     Then I should see my new location for the session reflected in the index page
+
+  Scenario: Conference organizer selects a preexisting speaker
+    Given an existing session "Talk A"
+    And an existing speaker "Speaker A"
+    When I am on the Sessions section
+    And I open the edit page for the session "Talk A"
+    And select the speaker "Speaker A" for the session
+    And I save those changed details to the session
+    Then I should see my new speaker for the session reflected in the index page
