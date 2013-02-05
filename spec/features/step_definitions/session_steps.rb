@@ -2,7 +2,6 @@ module SessionSteps
   step "I create a (new) session for :talk_name" do |talk_name|
     click_link 'New Session'
     fill_in 'Title', with: talk_name
-    fill_in 'Location', with: 'Room 123'
     fill_in 'Speaker', with: 'Bob Loblaw'
     fill_in 'Session type', with: 'Talk'
     step "fill in the session start time"
@@ -36,6 +35,21 @@ module SessionSteps
   step "an existing session :title" do |title|
     step "I create a new session for '#{title}'"
     step "I go to the Sessions section"
+  end
+
+  step "select the location :location for the session" do |location|
+    @my_new_location = location
+    select @my_new_location, from: 'session_location_id'
+  end
+
+  step "I should see my new location for the session reflected in the index page" do
+    step "I go to the Sessions section"
+    step "I should see '#{@my_new_location}'"
+  end
+
+  step "I open the edit page for the session :title" do |title|
+    step "I go to the Sessions section"
+    find("a[href='/admin/sessions/#{Session.where(title: title).first.id}/edit']").click
   end
 
   step "I change some details for the session :title" do |title|

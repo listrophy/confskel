@@ -14,7 +14,16 @@ ActiveAdmin.register Session do
 
   form do |f|
     f.inputs :title
-    f.inputs :location
+    f.inputs do
+      f.input :location,
+        hint: """
+          You may need to add a <a href=/admin/locations/new title=\"Add
+          a new location\">new location</a> first. <br> Note: you can
+          edit this session later if you don't want to add a location
+          now.
+        """.html_safe
+    end
+    f.inputs :room
     f.inputs :speaker
     f.inputs :session_type
     f.inputs 'Duration' do

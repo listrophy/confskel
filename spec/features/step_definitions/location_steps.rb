@@ -1,5 +1,6 @@
 module LocationSteps
   step "I create a new location :name" do |name|
+    step "I am on the Locations section"
     click_link 'New Location'
     fill_in 'Name', with: name
     fill_in 'Address', with: '123 bla lane'
