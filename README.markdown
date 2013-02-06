@@ -6,6 +6,11 @@ panel that should accommodate most conferences.
 
 ## Installation
 
+1. Fork this project
+1. Overwrite /app/assets/logo.png with your conference's logo
+1. Set `config.site_title` to your conference's title in
+	 /config/initializers/active_admin.rb (should be around line 30)
+
 ### Setting up Amazon S3 (for images)
 
 Uploading conference images requires an S3 account.
@@ -30,3 +35,9 @@ in your terminal:
 
 ## Reference
 ### List of endpoints/actions
+
+## Helpful hints
+
+If we've forgotten something (and we probably have) it's useful to
+search for 'FIXME' in the source of your project, as we've tried to
+label things new site owners will need to change/fix.
