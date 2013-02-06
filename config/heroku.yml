@@ -12,7 +12,7 @@
 
 staging:
   stack: cedar
-  app: stark-sea-2725
+  app: confskel-staging
   config: &default
     BUNDLE_WITHOUT: "development:test"
   addons:
