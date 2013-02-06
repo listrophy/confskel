@@ -18,8 +18,9 @@ panel that should accommodate most conferences.
 Uploading conference images requires an S3 account.
 
 1. Set up [an account](https://aws.amazon.com/s3/)
-1. Obtain your "Access Key ID" and "Secret Access Key" from the [AWS
-	 Credentials Page](https://portal.aws.amazon.com/gp/aws/securityCredentials)
+1. Obtain your "Access Key ID" and "Secret Access Key" from the [AWS Credentials Page](https://portal.aws.amazon.com/gp/aws/securityCredentials)
+1. Add these credentials to `config/credentials.yml`. See
+	 `config/credentials.yml.example` for an example
 
 ### Setting up Heroku
 
