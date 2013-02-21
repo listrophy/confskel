@@ -9,6 +9,7 @@ ActiveAdmin.register Sponsor do
     column 'Sponsor Image' do |sponsor|
       image_tag(sponsor.image_url) if sponsor.image_url
     end
+    column :sponsorship_level
 
     default_actions
   end
