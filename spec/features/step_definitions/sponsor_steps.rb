@@ -1,5 +1,6 @@
 module SponsorSteps
   step "I create a new sponsor :name" do |name|
+    step "I am on the Sponsors section"
     click_link 'New Sponsor'
     fill_in 'Name', with: name
     fill_in 'Twitter', with: '@yourfavoritesponsor'

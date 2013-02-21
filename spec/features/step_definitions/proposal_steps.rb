@@ -1,4 +1,9 @@
 module ProposalSteps
+  step "an existing proposal :name" do |name|
+    step "I am on the Proposals section"
+    step "I make a new talk proposal '#{name}'"
+  end
+
   step "I make a new talk proposal :name" do |name|
     click_link 'New Proposal'
     fill_in 'Audience', with: 'Errbody'

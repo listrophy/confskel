@@ -1,5 +1,6 @@
 module SessionSteps
   step "I create a (new) session for :talk_name" do |talk_name|
+    step "I go to the Sessions section"
     click_link 'New Session'
     fill_in 'Title', with: talk_name
     fill_in 'Session type', with: 'Talk'

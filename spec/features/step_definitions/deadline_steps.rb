@@ -1,5 +1,6 @@
 module DeadlineSteps
   step "an existing deadline :name" do |name|
+    step "I go to the Deadlines section"
     step "I create a new deadline '#{name}'"
     step "I go to the Deadlines section"
   end
