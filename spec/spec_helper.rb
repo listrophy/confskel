@@ -44,4 +44,5 @@ RSpec.configure do |config|
   config.include DeadlineSteps
   config.include LocationSteps
   config.include AllFieldsSteps
+  config.include StaticTextSteps
 end
