@@ -3,7 +3,7 @@ CarrierWave.configure do |config|
   # config.directory_permissions = 0777
   #config.storage = :file
 
-  if Rails.env.test?
+  if Rails.env.test? or Rails.env.development?
     config.storage :file
     config.enable_processing = false
   else
