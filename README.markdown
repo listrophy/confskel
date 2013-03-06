@@ -7,6 +7,8 @@ panel that should accommodate most conferences.
 ## Installation
 
 1. Fork this project
+1. Clone your fork, e.g. `git clone https://github.com/bendyworks/confskel && cd confskel`
+1. Install dependencies by running `bundle` in the project's directory
 1. Overwrite /app/assets/logo.png with your conference's logo
 1. Set `config.site_title` to your conference's title in
 	 /config/initializers/active_admin.rb (should be around line 30)
@@ -18,17 +20,18 @@ panel that should accommodate most conferences.
 Uploading conference images requires an S3 account.
 
 1. Set up [an account](https://aws.amazon.com/s3/)
-1. Obtain your "Access Key ID" and "Secret Access Key" from the [AWS Credentials Page](https://portal.aws.amazon.com/gp/aws/securityCredentials)
+1. Obtain your "Access Key ID" and "Secret Access Key" from the [AWS
+   Credentials
+Page](https://portal.aws.amazon.com/gp/aws/securityCredentials)
 1. Add these credentials to `config/credentials.yml`. See
 	 `config/credentials.yml.example` for an example
 
 ### Setting up Heroku
 
-To get a copy of this site up and running on Heroku, run the following
-in your terminal:
+To get a copy of this site up and running on Heroku, assuming you're in
+the project's directory you made when [installing](#installation), run
+the following in your terminal:
 
-1. `git clone https://github.com/bendyworks/confskel && cd confskel`
-1. `bundle`
 1. `heroku apps:create your_conference_name`
 1. `heroku config:set AWS_ACCESS_KEY_ID=your_access_key`
 1. `heroku config:set AWS_SECRET_ACCESS_KEY=your_secret_key`
@@ -36,11 +39,15 @@ in your terminal:
 
 ## Creating the Font-End
 
-## Reference
-### List of endpoints/actions
+The front end development and design is likely to vary a lot from site
+to site, that's why this site only includes administration.  Designers
+and front end developers should be able to get right to work, just
+writing views/styles/front end behaviors, without needing to change any
+models/controllers.  Some things that might be useful:
 
 ## Helpful hints
 
-If we've forgotten something (and we probably have) it's useful to
-search for 'FIXME' in the source of your project, as we've tried to
-label things new site owners will need to change/fix.
+* `FIXME` comments mark items you should change before starting up your
+  site
+* `rake routes` and controller methods are your friend when trying to
+  figure out what to name your views, and what data is provided to views
