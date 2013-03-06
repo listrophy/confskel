@@ -32,6 +32,7 @@ group :development do
   gem 'heroku_san'
   gem 'heroku'
   gem 'thin'
+  gem 'faker'
 end
 
 group :test, :development do
