@@ -11,6 +11,9 @@ ActiveAdmin.register Speaker do
     column 'Speaker Image' do |speaker|
       image_tag(speaker.image_url) if speaker.image_url
     end
+    column 'Alternate Speaker Image' do |speaker|
+      image_tag(speaker.alternate_image_url) if speaker.alternate_image_url
+    end
     default_actions
   end
 
@@ -22,6 +25,9 @@ ActiveAdmin.register Speaker do
       row :bio
       row :image do
         image_tag(speaker.image_url) if speaker.image_url
+      end
+      row :alternate_image do
+        image_tag(speaker.alternate_image_url) if speaker.alternate_image_url
       end
       row :company_name
       row :company_url
@@ -36,6 +42,7 @@ ActiveAdmin.register Speaker do
       f.input :twitter
       f.input :website
       f.input :image, as: :file, :hint => (f.template.image_tag(speaker.image_url) if speaker.image_url)
+      f.input :alternate_image, as: :file, :hint => (f.template.image_tag(speaker.alternate_image_url) if speaker.alternate_image_url)
       f.input :company_name
       f.input :company_url
     end

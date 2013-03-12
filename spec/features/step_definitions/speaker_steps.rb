@@ -69,7 +69,18 @@ module SpeakerSteps
     step "I save those changes to the speaker"
   end
 
+  step 'I upload an alternate speaker image for :name' do |name|
+    attach_file('Alternate image', 'spec/fixtures/speaker_alternate.png')
+    step "I save those changes to the speaker"
+  end
+
   step "I should see the new speaker image for :name" do |name|
+    within('.speaker') do
+      page.should have_css('img')
+    end
+  end
+
+  step "I should see the new alternate speaker image for :name" do |name|
     within('.speaker') do
       page.should have_css('img')
     end

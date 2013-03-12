@@ -117,32 +117,35 @@ Feature: Show all fields in the dashboard
   Scenario: Fields are visible for speakers
     Given an existing speaker "Speaker A"
     Then I should see the following fields on the index page for speakers:
-      | field        |
-      | bio          |
-      | company_name |
-      | company_url  |
-      | name         |
-      | twitter      |
-      | website      |
-      | image        |
+      | field                   |
+      | bio                     |
+      | company_name            |
+      | company_url             |
+      | name                    |
+      | twitter                 |
+      | website                 |
+      | image                   |
+      | alternate_speaker_image |
     And I should see the following fields on the show page for speakers:
-      | field        |
-      | bio          |
-      | company_name |
-      | company_url  |
-      | name         |
-      | twitter      |
-      | website      |
-      | image        |
+      | field           |
+      | bio             |
+      | company_name    |
+      | company_url     |
+      | name            |
+      | twitter         |
+      | website         |
+      | image           |
+      | alternate_image |
     And I should see the following fields on the edit page for speakers:
-      | field        |
-      | bio          |
-      | company_name |
-      | company_url  |
-      | name         |
-      | twitter      |
-      | website      |
-      | image        |
+      | field           |
+      | bio             |
+      | company_name    |
+      | company_url     |
+      | name            |
+      | twitter         |
+      | website         |
+      | image           |
+      | alternate_image |
 
   Scenario: Fields are visible for sponsors
     Given an existing sponsor "Sponsor A"
