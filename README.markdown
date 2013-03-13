@@ -7,10 +7,11 @@ panel that should accommodate most conferences.
 ## Installation
 
 1. Fork this project
-1. Clone your fork, e.g. `git clone https://github.com/bendyworks/confskel && cd confskel`
+1. Clone your fork, e.g. `git clone https://github.com/bendyworks/confskel`
 1. Install dependencies by running `bundle` in the project's directory
-1. Overwrite app/assets/logo.png with your conference's logo
-1. Overwrite app/assets/images/speaker_default.png with the image you
+   (e.g. `cd confskel && bundle`)
+1. Overwrite `app/assets/logo.png` with your conference's logo
+1. Overwrite `app/assets/images/speaker_default.png` with the image you
    wish to use when a speaker doesn't have an image (a default is
 provided otherwise)
 1. Set `config.site_title` to your conference's title in
@@ -48,7 +49,7 @@ and front end developers should be able to get right to work, just
 writing views/styles/front end behaviors, without needing to change any
 models/controllers.  Some things that might be useful:
 
-## Helpful hints
+### Helpful hints
 
 * `FIXME` comments mark items you should change before starting up your
   site
