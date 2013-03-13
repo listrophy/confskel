@@ -50,7 +50,9 @@ ActiveAdmin.register Speaker do
       f.input :twitter
       f.input :website
       f.input :image, as: :file, :hint => (f.template.image_tag(speaker.image_url))
+      f.input :remove_image, as: :boolean if f.object.image?
       f.input :alternate_image, as: :file, :hint => (f.template.image_tag(speaker.alternate_image_url))
+      f.input :remove_alternate_image, as: :boolean if f.object.alternate_image?
       f.input :company_name
       f.input :company_url
       f.input :github
