@@ -9,7 +9,10 @@ panel that should accommodate most conferences.
 1. Fork this project
 1. Clone your fork, e.g. `git clone https://github.com/bendyworks/confskel && cd confskel`
 1. Install dependencies by running `bundle` in the project's directory
-1. Overwrite /app/assets/logo.png with your conference's logo
+1. Overwrite app/assets/logo.png with your conference's logo
+1. Overwrite app/assets/images/speaker_default.png with the image you
+   wish to use when a speaker doesn't have an image (a default is
+provided otherwise)
 1. Set `config.site_title` to your conference's title in
 	 /config/initializers/active_admin.rb (should be around line 30)
 1. If you use rvm: change the `.rvmrc` to match your new project's
