@@ -10,4 +10,8 @@ class SpeakerUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
+
+  def default_url
+    "/assets/speaker_default.png"
+  end
 end
