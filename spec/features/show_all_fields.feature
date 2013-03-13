@@ -126,6 +126,10 @@ Feature: Show all fields in the dashboard
       | website                 |
       | image                   |
       | alternate_speaker_image |
+      | github                  |
+      | slides                  |
+      | rating_page             |
+      | talk_page               |
     And I should see the following fields on the show page for speakers:
       | field           |
       | bio             |
@@ -136,6 +140,10 @@ Feature: Show all fields in the dashboard
       | website         |
       | image           |
       | alternate_image |
+      | github          |
+      | slides          |
+      | rating_page     |
+      | talk_page       |
     And I should see the following fields on the edit page for speakers:
       | field           |
       | bio             |
@@ -146,6 +154,10 @@ Feature: Show all fields in the dashboard
       | website         |
       | image           |
       | alternate_image |
+      | github          |
+      | slides          |
+      | rating_page     |
+      | talk_page       |
 
   Scenario: Fields are visible for sponsors
     Given an existing sponsor "Sponsor A"

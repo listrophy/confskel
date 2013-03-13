@@ -14,6 +14,10 @@ ActiveAdmin.register Speaker do
     column 'Alternate Speaker Image' do |speaker|
       image_tag(speaker.alternate_image_url)
     end
+    column :github
+    column :slides
+    column :rating_page
+    column :talk_page
     default_actions
   end
 
@@ -31,6 +35,10 @@ ActiveAdmin.register Speaker do
       end
       row :company_name
       row :company_url
+      row :github
+      row :slides
+      row :rating_page
+      row :talk_page
     end
 
   end
@@ -45,6 +53,10 @@ ActiveAdmin.register Speaker do
       f.input :alternate_image, as: :file, :hint => (f.template.image_tag(speaker.alternate_image_url))
       f.input :company_name
       f.input :company_url
+      f.input :github
+      f.input :slides
+      f.input :rating_page
+      f.input :talk_page
     end
     f.actions
   end
