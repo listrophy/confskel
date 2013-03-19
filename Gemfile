@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 # Remove this when Rails is upgraded & requires rack >= 1.4.5 or >= 1.5.2
 gem 'rack', '~> 1.4.5'
 # Remove this when Rails is upgraded & requires json >= 1.7.7
