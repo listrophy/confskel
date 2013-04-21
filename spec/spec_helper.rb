@@ -45,4 +45,5 @@ RSpec.configure do |config|
   config.include LocationSteps
   config.include AllFieldsSteps
   config.include StaticTextSteps
+  config.include ApproveAProposalSteps
 end

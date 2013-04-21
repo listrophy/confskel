@@ -2,9 +2,9 @@ module AllFieldsSteps
 
   # helpers {{{
 
-  step 'I should see :number fields in an ActiveAdmin index page table' do |number|
+  step 'I should see :number or more fields in an ActiveAdmin index page table' do |number|
     within '.index_table' do
-      all('th').length.should == number.to_i
+      all('th').length.should be >= number.to_i
     end
   end
 
@@ -46,7 +46,7 @@ module AllFieldsSteps
     step 'I go to the Deadlines section'
 
     # NOTE: we're adding one to allow for the actions (edit/view/delete) heading
-    step "I should see #{fields.hashes.length + 1} fields in an ActiveAdmin index page table"
+    step "I should see #{fields.hashes.length + 1} or more fields in an ActiveAdmin index page table"
 
     fields.hashes.map do |hash|
       step "I should see the '#{hash['field']}' field in an ActiveAdmin index page table"
@@ -85,7 +85,7 @@ module AllFieldsSteps
     step 'I go to the Locations section'
 
     # NOTE: we're adding one to allow for the actions (edit/view/delete) heading
-    step "I should see #{fields.hashes.length + 1} fields in an ActiveAdmin index page table"
+    step "I should see #{fields.hashes.length + 1} or more fields in an ActiveAdmin index page table"
 
     fields.hashes.map do |hash|
       step "I should see the '#{hash['field']}' field in an ActiveAdmin index page table"
@@ -124,7 +124,7 @@ module AllFieldsSteps
     step 'I go to the Proposals section'
 
     # NOTE: we're adding one to allow for the actions (edit/view/delete) heading
-    step "I should see #{fields.hashes.length + 1} fields in an ActiveAdmin index page table"
+    step "I should see #{fields.hashes.length + 1} or more fields in an ActiveAdmin index page table"
 
     fields.hashes.map do |hash|
       step "I should see the '#{hash['field']}' field in an ActiveAdmin index page table"
@@ -163,7 +163,7 @@ module AllFieldsSteps
     step 'I go to the Sessions section'
 
     # NOTE: we're adding one to allow for the actions (edit/view/delete) heading
-    step "I should see #{fields.hashes.length + 1} fields in an ActiveAdmin index page table"
+    step "I should see #{fields.hashes.length + 1} or more fields in an ActiveAdmin index page table"
 
     fields.hashes.map do |hash|
       step "I should see the '#{hash['field']}' field in an ActiveAdmin index page table"
@@ -202,7 +202,7 @@ module AllFieldsSteps
     step 'I go to the Speakers section'
 
     # NOTE: we're adding one to allow for the actions (edit/view/delete) heading
-    step "I should see #{fields.hashes.length + 1} fields in an ActiveAdmin index page table"
+    step "I should see #{fields.hashes.length + 1} or more fields in an ActiveAdmin index page table"
 
     fields.hashes.map do |hash|
       step "I should see the '#{hash['field']}' field in an ActiveAdmin index page table"
@@ -241,7 +241,7 @@ module AllFieldsSteps
     step 'I go to the Sponsors section'
 
     # NOTE: we're adding one to allow for the actions (edit/view/delete) heading
-    step "I should see #{fields.hashes.length + 1} fields in an ActiveAdmin index page table"
+    step "I should see #{fields.hashes.length + 1} or more fields in an ActiveAdmin index page table"
 
     fields.hashes.map do |hash|
       step "I should see the '#{hash['field']}' field in an ActiveAdmin index page table"
