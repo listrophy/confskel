@@ -21,9 +21,9 @@ ActiveAdmin.register Proposal do
 
   index do
     column do |proposal|
-      if Speaker.exists? name: proposal.name
+      if Speaker.exists?(name: proposal.name)
         link_to 'View speaker', admin_speaker_path(Speaker.find_by_name(proposal.name))
-      else
+      elsif !proposal.name.nil? && proposal.name.length != 0
         link_to 'Approve', approve_admin_proposal_path(proposal), method: :put
       end
     end
