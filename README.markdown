@@ -16,8 +16,8 @@ panel that should accommodate most conferences.
 provided otherwise)
 1. Set `config.site_title` to your conference's title in
 	 /config/initializers/active_admin.rb (should be around line 30)
-1. If you use rvm: change the `.rvmrc` to match your new project's
-	 desired gemset (if you don't use rvm, don't worry about it :)
+1. If you use rvm: change the `.ruby-version` and `.ruby-gemset` to match
+   your new project's desired gemset (if you don't use rvm, don't worry about it :)
 
 ### Setting up Amazon S3 (for images)
 
