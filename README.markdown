@@ -41,7 +41,7 @@ the following in your terminal:
 1. `heroku config:set AWS_SECRET_ACCESS_KEY=your_secret_key`
 1. `git push heroku master`
 
-## Creating the Font-End
+## Creating the Front-End
 
 The front end development and design is likely to vary a lot from site
 to site, that's why this site only includes administration.  Designers
